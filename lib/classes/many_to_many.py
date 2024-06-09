@@ -6,8 +6,7 @@ class Band:
         else:
             raise ValueError("Hometown must be a non-empty string")
         self.name = name
-        Band.all.append(self)
-    
+        Band.all.append(self) 
 
     @property
     def name(self):
@@ -37,10 +36,8 @@ class Band:
             raise ValueError("Venue must be of type Venue")
         return Concert(date, self, venue)
 
-
     def all_introductions(self):
         return [concert.introduction() for concert in self.concerts()]
-
 
 
 class Concert:
@@ -80,7 +77,6 @@ class Concert:
             raise ValueError("Venue must be of type Venue")
         self._venue = venue
         
-
     def hometown_show(self):
         return self.venue.city == self.band.hometown
 
@@ -116,7 +112,6 @@ class Venue:
             self._city = city
         else:
             raise ValueError("City must be non_empty string")
-
 
     def concerts(self):
         result =[concert for concert in Concert.all if concert.venue == self]
